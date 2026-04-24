@@ -43,7 +43,6 @@ def main():
             print(f"Слов: {w}")
             print(f"Символов (с побелами): {cws}")
             print(f"Символов (без пробелов): {cwos}")
-
         elif choice == "2":
             freq = letter_frequency(text)
             if not freq:
@@ -51,7 +50,6 @@ def main():
             else:
                 for ch, cnt in freq.most_common():
                     print(f"{ch}: {cnt}")
-
         elif choice == "3":
             lw = longest_word(text)
             if lw:
