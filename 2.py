@@ -19,6 +19,12 @@ def letter_frequency(text):
     letters = [ch.lower() for ch in text if ch.isalpha()]
     return Counter(letters)
 
+def longest_word(text):
+    words = text.split()
+    if not words:
+        return None
+    return max(words, key=len)
+
 def main():
     while True:
         text = input("Введите текст: ")
@@ -39,7 +45,11 @@ def main():
                     print(f"{ch}: {cnt}")
 
         elif choice == "3":
-            print("Функция 3")
+            lw = longest_word(text)
+            if lw:
+                print(f"Самое длинное слово: '{lw}' (длина {len(lw)})")
+            else:
+                print("Текст пуст")
         elif choice == "4":
             print("Функция 4")
         else:
