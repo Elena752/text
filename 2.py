@@ -1,3 +1,6 @@
+from collections import Counter
+import string
+
 def menu():
     print("\nАнализатор текста")
     print("1. Подсчёт слов и символов")
@@ -12,6 +15,10 @@ def count_words_and_chars(text):
     chars_without_spaces = len(text.replace(" ", ""))
     return num_words, chars_with_spaces, chars_without_spaces
 
+def letter_frequency(text):
+    letters = [ch.lower() for ch in text if ch.isalpha()]
+    return Counter(letters)
+
 def main():
     while True:
         text = input("Введите текст: ")
@@ -22,8 +29,15 @@ def main():
             print(f"Слов: {w}")
             print(f"Символов (с побелами): {cws}")
             print(f"Символов (без пробелов): {cwos}")
+
         elif choice == "2":
-            print("Функция 2")
+            freq = letter_frequency(text)
+            if not freq:
+                print("Нет букв в тексте")
+            else:
+                for ch, cnt in freq.most_common():
+                    print(f"{ch}: {cnt}")
+
         elif choice == "3":
             print("Функция 3")
         elif choice == "4":
