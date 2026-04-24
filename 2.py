@@ -6,7 +6,7 @@ def menu():
     print("1. Подсчёт слов и символов")
     print("2. Частота букв")
     print("3. Самое длинное слово")
-    print("4. Средняя длина слова")
+    print("5. Средняя длина слова")
 
 def count_words_and_chars(text):
     words = text.split()
