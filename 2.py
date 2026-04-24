@@ -25,6 +25,14 @@ def longest_word(text):
         return None
     return max(words, key=len)
 
+def average_word_length_clean(text):
+    translator = str.maketrans('', '', string.punctuation)
+    cleaned = text.translate(translator)
+    words = cleaned.split()
+    if not words:
+        return 0.0
+    return sum(len(w) for w in words) / len(words)
+
 def main():
     while True:
         text = input("Введите текст: ")
@@ -51,7 +59,7 @@ def main():
             else:
                 print("Текст пуст")
         elif choice == "4":
-            print("Функция 4")
+            print(f"Средняя длина слова: {average_word_length_clean(text)}")
         else:
             break
 
